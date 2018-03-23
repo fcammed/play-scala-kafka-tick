@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           	controllers.Application.index
+# Help page
+GET     /demoticket                     controllers.Application.index
+# Demo Maps
+GET     /maps                     		controllers.Application.maps
+
+# Services Tick
+PUT     /tick/:tipo                     controllers.Application.putGenTick(tipo: String)
+GET     /feed/tick                      controllers.Application.tickFeed
+GET     /tick/last_offset               controllers.Application.getLastOffset
+GET     /tick/messages/last/:count      controllers.Application.getLastMessages(count: Int)
+GET     /tick/offset/reset/back/:back   controllers.Application.getResetOffset(back: Int)
+GET     /promoGet                      	controllers.Application.peServiceGet
+GET     /promoPP                      	controllers.Application.peServicePP
+GET     /promoFF                      	controllers.Application.peServiceFF
+GET     /promoFF_ES                     controllers.Application.peServiceFF_ES
+
+# Services Neo4j
+GET     /getPromo/:query                controllers.Application.getServicePromo(query: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

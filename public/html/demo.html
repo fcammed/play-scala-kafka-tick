@@ -1,0 +1,51 @@
+<div class="page-header">
+    <h1>Tick</h1>
+    <p>To Kafka and Back</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>Actions <span class="glyphicon glyphicon-flash text-primary"></span></h4>
+        <div>
+            <p>Simulación Eventos</p>
+			<p><button class="btn btn-success" data-ng-click="putTick(1)">Apertura</button></p>
+			<p><button class="btn btn-primary" data-ng-click="putTick(2)">Ticket</button></p>
+			<p><button class="btn btn-warning" data-ng-click="putTick(3)">Cierre</button></p>
+            <p><button class="btn btn-primary" data-ng-click="getTickLastOffset()">Last Offset</button></p>
+        </div>
+		<div>
+			<p>Status ....</p>
+            <p>{{home_output}}</p>
+        </div>
+    </div>
+    <!-- <div class="col-md-4">
+        <h4>Results <span class="glyphicon glyphicon-check text-primary"></span></h4>
+
+        <div>
+            <p>{{home_output}}</p>
+        </div>
+    </div>  -->
+    <div class="col-md-4">
+        <h4>Feed <span class="glyphicon glyphicon-eye-open text-primary"></span></h4>
+
+        <p>Ticks appear below...</p>
+        <ul>
+            <!-- breed: String, count: Int, description: String, timestamp: Long, comments -->
+            <div class="ticks" ng-repeat="tick in tick_feed_msgs track by $index | limitTo:-10">
+                <li><span class="text-primary">{{ tick.evento + ', ' + tick.cmd }}</span></li>
+            </div>
+        </ul>
+    </div>
+	<div class="col-md-4">
+        <h4>Alerts <span class="glyphicon glyphicon-eye-open text-primary"></span></h4>
+
+        <p>Alerts appear below...</p>
+        <ul>
+            <!-- breed: String, count: Int, description: String, timestamp: Long, comments -->
+            <div class="Alerts" ng-repeat="alert in alert_feed_msgs track by $index | limitTo:-10">
+                <li><span class="text-primary">{{ alert.Alerta + ', ' + alert.cmd }}</span></li>
+            </div>
+        </ul>
+    </div>
+</div>
+
